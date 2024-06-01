@@ -6,6 +6,7 @@ local check_id=$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)
 
 case $1 in
   --info )
+    echo "Game Storm Informations"
     echo "id : $id"
     echo "vip : $(echo $check_id | grep -q "$id" && echo true || echo false)"
     exit 0
