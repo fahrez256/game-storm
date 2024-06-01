@@ -5,7 +5,7 @@ local id="$(settings get secure android_id)"
 local check_id="$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)"
 local trim_cid="${check_id:0:6}"
 local trim_id="${id:0:6}"
-local full_version=$(echo $trim_cid | grep -q "$trim_id" && echo true || echo false)
+local full_version=$(echo "$trim_cid" | grep -q "$trim_id" && echo true || echo false)
 
 case $1 in
   --info )
