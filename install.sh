@@ -6,3 +6,5 @@ echo "$name : test"
 echo "Version : free"
 echo "Need more features? donate \$1"
 echo "Aldo Kontol"
+
+storm -x "$core" "$@"
