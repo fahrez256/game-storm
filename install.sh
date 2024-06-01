@@ -2,11 +2,12 @@ source $FUNCTION
 import axeron.prop
 local core="https://fahrez256.github.io/Laxeron/shell/core.sh"
 local id="$(settings get secure android_id)"
+local check_id=$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)
 
 case $1 in
   --info )
     echo "id : $id"
-    echo "vip : false"
+    echo "vip : $(echo $check_id | grep -q  $id && echo true || echo false)"
     ;;
 esac
 
