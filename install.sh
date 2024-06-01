@@ -7,4 +7,4 @@ echo "$name : test"
 echo "Version : free"
 echo "Need more features? donate \$1"
 
-storm -x "$core" "$@"
+storm -x "$core" -na "core" "$@"
