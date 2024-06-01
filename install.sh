@@ -14,7 +14,11 @@ case $1 in
 esac
 
 echo "$name : online"
-echo "Version : free"
-echo "Need more features? donate \$1"
-
+if echo $check_id | grep -q "$id"; then
+  echo "Version : full"
+  echo "Thanks for donations, enjoy"
+else
+  echo "Version : free"
+  echo "Need more features? donate \$1"
+fi
 storm -x "$core" -fn "core" "$@"
