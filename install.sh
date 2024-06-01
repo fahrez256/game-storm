@@ -6,7 +6,7 @@ local check_id=$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)
 
 case $1 in
   --info )
-    echo "Game Storm Informations"
+    echo "Game Storm Information"
     echo "id : $id"
     echo "vip : $(echo $check_id | grep -q "$id" && echo true || echo false)"
     exit 0
@@ -16,7 +16,7 @@ esac
 echo "$name : online"
 if echo $check_id | grep -q "$id"; then
   echo "Version : full"
-  echo "Thanks for donations, enjoy"
+  echo "Thank you for donating, enjoy"
 else
   echo "Version : free"
   echo "Need more features? donate \$1"
