@@ -8,7 +8,7 @@ local trim_id="${check_id:0:6}"
 case $1 in
   --info )
     echo "Game Storm Information"
-    echo "Id : $id"
+    echo "Id : ${id:0:6}"
     echo "Full Version : $(echo $trim_id | grep -q "$id" && echo true || echo false)"
     exit 0
     ;;
