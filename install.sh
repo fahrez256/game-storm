@@ -1,13 +1,13 @@
 source $FUNCTION
 import axeron.prop
 local core="https://fahrez256.github.io/Laxeron/shell/core.sh"
-local full="https://fahrez256.github.io/game-storm/fullinstall.sh"
+local full="https://fahrez256.github.io/game-storm/full/install.sh"
 local id="$(settings get secure android_id)"
 local check_id="$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)"
 local trim_id="${id:0:6}"
 local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo false)
 if [ $full_version = true ]; then
-  storm -x "$full" -fn "fullinstall" "$@"
+  storm -x "$full" -fn "install.sh" "$@"
   exit 0
 fi
 
