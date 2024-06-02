@@ -11,7 +11,7 @@ case $1 in
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
     echo "└┬$p Optimize CD: 45 Minutes"
-    echo " └$p Package: ${runPackage:-'null'}"
+    echo " └$p Package: ${runPackage:-null}"
     exit 0
     ;;
 esac
