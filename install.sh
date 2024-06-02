@@ -1,5 +1,6 @@
 source $FUNCTION
 import axeron.prop
+local pid="[ $$ ] "
 local core="https://fahrez256.github.io/Laxeron/shell/core.sh"
 local fcore="https://fahrez256.github.io/game-storm/fcore.sh"
 local id="$(settings get secure android_id)"
@@ -16,13 +17,12 @@ case $1 in
     ;;
 esac
 
-echo "$name : online"
 if [ $full_version = true ]; then
-  echo "Version : full"
-  echo "Thank you for donating, enjoy"
+  echo "$pid $name | Full Version"
+  echo "[ - ] Thank you for donating, enjoy"
   storm -x "$fcore" -fn "fcore" "$@"
 else
-  echo "Version : free"
+  echo "$name | Free Version"
   echo "Need more features? donate \$1"
   storm -x "$core" -fn "core" "$@"
 fi
