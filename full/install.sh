@@ -2,7 +2,7 @@ source $FUNCTION
 import axeron.prop
 local pid="[$$]"
 local p="[-]"
-local fcore="https://fahrez256.github.io/game-storm/fcore.sh"
+local fcore="https://fahrez256.github.io/game-storm/full/core.sh"
 local id="$(settings get secure android_id)"
 local trim_id="${id:0:6}"
 
