@@ -10,7 +10,7 @@ case $1 in
   --info )
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
-    echo "└┬$p Cooldown: $full_version"
+    echo "└┬$p Optimize CD: 45 Minutes"
     echo " └$p Package: ${runPackage:-'null'}"
     exit 0
     ;;
