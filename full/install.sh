@@ -14,6 +14,10 @@ case $1 in
     echo " └$p Package: ${runPackage:-null}"
     exit 0
     ;;
+  --changelogs )
+    storm -x "https://fahrez256.github.io/game-storm/full/changelogs.sh" -fn "changelogs" "$@"
+    exit 0
+    ;;
 esac
 
 echo "┌$pid $name | Full Version"
