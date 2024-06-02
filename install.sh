@@ -10,9 +10,9 @@ local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo 
 
 case $1 in
   --info )
-    echo "Game Storm Information"
-    echo "Id : $trim_id"
-    echo "Full Version : $full_version"
+    echo "┌|$name info"
+    echo "├|ID: $trim_id"
+    echo "└|Full Version: $full_version"
     exit 0
     ;;
 esac
