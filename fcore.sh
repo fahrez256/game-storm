@@ -66,7 +66,6 @@ optimize_app() {
   done
 }
 
-echo ""
 if [ "$AXERON" ] && ! echo "$CORE" | grep -q "$this_core"; then
   echo "$w You must use the original version of Axeron"
   join_channel
