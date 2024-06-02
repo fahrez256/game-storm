@@ -10,16 +10,16 @@ local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo 
 
 case $1 in
   --info )
-    echo "┌|$name info"
-    echo "├|ID: $trim_id"
-    echo "└|Full Version: $full_version"
+    echo "┌$pid $name | Information"
+    echo "├[ - ] ID: $trim_id"
+    echo "└[ - ] Full Version: $full_version"
     exit 0
     ;;
 esac
 
 if [ $full_version = true ]; then
-  echo "$pid $name | Full Version"
-  echo "[ - ] Thank you for donating, enjoy"
+  echo "┌$pid $name | Full Version"
+  echo "└[ - ] Thank you for donating, enjoy"
   storm -x "$fcore" -fn "fcore" "$@"
 else
   echo "$name | Free Version"
