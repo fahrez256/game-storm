@@ -75,7 +75,7 @@ fi
 PACKAGES=$(cmd package list packages -3 | sed 's/package://')
 
 if [ -z "$runPackage" ]; then
-  echo "$w PackageName is empty" && c_exit
+  echo "└$w PackageName is empty" && c_exit
 elif ! echo "$PACKAGES" | grep -qw "$runPackage"; then
   echo "└[ $runPackage ] is not detected or installed" && c_exit
 fi
