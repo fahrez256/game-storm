@@ -10,8 +10,8 @@ case $1 in
   --info )
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
-    echo "└┬$p Full Version: $full_version"
-    echo " └$p Package: $runPackage"
+    echo "└┬$p Cooldown: $full_version"
+    echo " └$p Package: ${runPackage:-'null'}"
     exit 0
     ;;
 esac
