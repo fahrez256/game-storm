@@ -17,6 +17,10 @@ case $1 in
     echo "ID: $trim_id"
     exit 0
     ;;
+  --changelogs )
+    storm -x "https://fahrez256.github.io/game-storm/changelogs.sh" -fn "changelogs" "$@"
+    exit 0
+    ;;
 esac
 
 echo "$name | Free Version"
