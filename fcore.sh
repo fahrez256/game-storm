@@ -78,7 +78,16 @@ PACKAGES=$(cmd package list packages -3 | sed 's/package://')
 if [ -z "$runPackage" ]; then
   echo "$w PackageName is empty" && c_exit
 elif ! echo "$PACKAGES" | grep -qw "$runPackage"; then
-  echo "$w PackageName is not detected or installed" && c_exit
+  echo "[ $runPackage ] is not detected or installed" && c_exit
+fi
+
+if echo "$PACKAGES" | grep -qw "$axeron"; then
+  echo "$s LAxeron is detected [Fast Connect]" && sleep 1
+else
+  echo "$w LAxeron not Installed"
+  echo "$i Please download LAxeron app from FahrezONE officially"
+  join_channel
+  c_exit
 fi
 
 mkdir -p "$log_path"
@@ -86,7 +95,7 @@ current_time=$(date +%s%3N)
 last_time=$(cat "$log_file" 2>/dev/null)
 time_diff=$((current_time - last_time))
 
-if [ "$time_diff" -ge 3600000 ] || [ ! -e "$log_file" ]; then
+if [ "$time_diff" -ge 2700000 ] || [ ! -e "$log_file" ]; then
   optimize_app
   echo -n "$current_time" > "$log_file"
 fi
@@ -95,14 +104,5 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
   echo "$w ActivityManager & PackageManager not Permitted" && c_exit
 fi
 
-if echo "$PACKAGES" | grep -qw "$axeron"; then
-  echo "$s LAxeron is detected [Fast Connect]" && sleep 1
-else
-  echo "$w Axeron not Installed"
-  echo "$i Please download Axeron app from FahrezONE officially"
-  join_channel
-  c_exit
-fi
-
-sleep 1 && am start -a android.intent.action.VIEW -n "com.fhrz.axeron/.Process" --es AXERON "$axeron_core" --es CORE "$core_info" > /dev/null 2>&1
+am start -a android.intent.action.VIEW -n "com.fhrz.axeron/.Process" --es AXERON "$axeron_core" --es CORE "$core_info" > /dev/null 2>&1
 c_exit
