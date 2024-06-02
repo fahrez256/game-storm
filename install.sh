@@ -19,7 +19,7 @@ esac
 
 if [ $full_version = true ]; then
   echo "┌$pid $name | Full Version"
-  echo "└[ - ] Thank you for donating, enjoy"
+  echo "│[ - ] Thank you for donating, enjoy"
   storm -x "$fcore" -fn "fcore" "$@"
 else
   echo "$name | Free Version"
