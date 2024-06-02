@@ -1,6 +1,6 @@
 source $FUNCTION
 import axeron.prop
-local pid="[ $$ ] "
+local pid="[ $$ ]"
 local core="https://fahrez256.github.io/Laxeron/shell/core.sh"
 local fcore="https://fahrez256.github.io/game-storm/fcore.sh"
 local id="$(settings get secure android_id)"
