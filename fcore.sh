@@ -58,7 +58,7 @@ c_exit() {
 
 optimize_app() {
   for package in $(echo $PACKAGES | cut -d ":" -f 2); do
-    if ! whitelist | grep -q "$package" || [ ! "$package" == "$runPackage" ] >/dev/null 2>&1; then
+    if ! whitelist | grep -q "$package" >/dev/null 2>&1 || [ ! "$runPackage" == "$package" ]; then
       cache_path="/sdcard/Android/data/${package}/cache"
       [ -e "$cache_path" ] && rm -rf "$cache_path" > /dev/null 2>&1
       am force-stop "$package" > /dev/null 2>&1
