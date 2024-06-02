@@ -1,8 +1,8 @@
 source /data/local/tmp/axeron.function
 import axeron.prop
-w="[ ! ]" #warn
-i="[ ? ]" #info
-s="[ ✓ ]" #success
+w="[!]" #warn
+i="[?]" #info
+s="[\$]" #success
 axeron="com.fhrz.axeron"
 host="fahrez256.github.io"
 host_path="/Laxeron/Core_2404.txt"
