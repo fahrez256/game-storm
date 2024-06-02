@@ -1,5 +1,7 @@
 source $FUNCTION
 import axeron.prop
+local verName="V1.0"
+loval version=10
 local pid="[$$]"
 local p="[-]"
 local fcore="https://fahrez256.github.io/game-storm/full/core.sh"
@@ -20,6 +22,6 @@ case $1 in
     ;;
 esac
 
-echo "┌$pid $name | Full Version"
+echo "┌$pid $name | $verName ($version)"
 echo "│$p Thank you for donating, enjoy"
 storm -x "$fcore" -fn "fcore" "$@"
