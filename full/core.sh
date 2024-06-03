@@ -1,4 +1,4 @@
-source /data/local/tmp/axeron.function
+source $FUNCTION
 import axeron.prop
 w="[!]" #warn
 i="[?]" #info
@@ -57,7 +57,7 @@ c_exit() {
 }
 
 optimize_app() {
-  for package in $(echo $PACKAGES | cut -d ":" -f 2); do
+  for package in $(pkglist); do
     if ! whitelist | grep -q "$package" >/dev/null 2>&1 && [ ! "$runPackage" == "$package" ]; then
       cache_path="/sdcard/Android/data/${package}/cache"
       #[ -e "$cache_path" ] && rm -rf "$cache_path" > /dev/null 2>&1
@@ -71,8 +71,6 @@ if [ "$AXERON" ] && ! echo "$CORE" | grep -q "$this_core"; then
   join_channel
   c_exit
 fi
-
-PACKAGES=$(cmd package list packages -3 | sed 's/package://')
 
 if [ -z "$runPackage" ]; then
   echo "└$w PackageName is empty" && c_exit
