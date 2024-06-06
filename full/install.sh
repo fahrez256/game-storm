@@ -10,8 +10,10 @@ local trim_id="${id:0:6}"
 
 time_conv() {
   ms=$1
-  
-  if [ "$ms" -lt 60000 ]; then
+
+  if [ "$ms" -lt 0]; then
+      echo "${2:-${seconds}s}"
+  elif [ "$ms" -lt 60000 ]; then
       # Jika kurang dari 60000 ms, tampilkan dalam detik
       seconds=$(echo "$ms / 1000" | bc)
       echo "${seconds}s"
@@ -47,7 +49,7 @@ case $1 in
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
     echo "└┬$p Version: $verName ($version)"
-    echo " ├$p Cooldown: $([ $converted_time -lt 0 ] && echo ready || echo $converted_time )"
+    echo " ├$p Cooldown: $converted_time"
     echo " └$p Package: ${runPackage:-null}"
     exit 0
     ;;
