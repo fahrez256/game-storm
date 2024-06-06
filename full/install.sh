@@ -43,10 +43,11 @@ case $1 in
     current_time=$(date +%s%3N)
     last_time=$(cat "$log_file" 2>/dev/null)
     time_diff=$((current_time - last_time))
+    converted_time=$(time_conv $time_diff)
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
     echo "└┬$p Version: $verName ($version)"
-    echo " ├$p Cooldown: $(time_conv $time_diff)"
+    echo " ├$p Cooldown: $([ $converted_time -lt 0 ] && echo ready || echo $converted_time )"
     echo " └$p Package: ${runPackage:-null}"
     exit 0
     ;;
