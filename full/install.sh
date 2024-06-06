@@ -9,7 +9,7 @@ local id="$(settings get secure android_id)"
 local trim_id="${id:0:6}"
 
 time_conv() {
-  ms=$(echo "2700000 - $1" | bc)
+  ms=$1
 
   if [ "$ms" -lt 0 ]; then
       seconds=$(echo "$ms / 1000" | bc)
@@ -45,7 +45,7 @@ case $1 in
     log_file="${log_path}/log.txt"
     current_time=$(date +%s%3N)
     last_time=$(cat "$log_file" 2>/dev/null)
-    time_diff=$((current_time - last_time))
+    time_diff=$((2700000 - (current_time - last_time)))
     converted_time=$(time_conv $time_diff "no cooldown")
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
