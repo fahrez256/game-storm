@@ -12,7 +12,8 @@ time_conv() {
   ms=$1
 
   if [ "$ms" -lt 0 ]; then
-      echo ${2:-"${seconds}s"}
+      seconds=$(echo "$ms / 1000" | bc)
+      echo "${2:-${seconds}s}"
   elif [ "$ms" -lt 60000 ]; then
       # Jika kurang dari 60000 ms, tampilkan dalam detik
       seconds=$(echo "$ms / 1000" | bc)
