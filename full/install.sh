@@ -9,7 +9,7 @@ local id="$(settings get secure android_id)"
 local trim_id="${id:0:6}"
 
 time_conv() {
-  ms=$(echo "$1 + "
+  ms=$1
 
   if [ "$ms" -lt 0 ]; then
       seconds=$(echo "$ms / 1000" | bc)
