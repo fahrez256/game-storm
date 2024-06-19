@@ -49,6 +49,7 @@ converted_time=$(time_conv $time_diff "no cooldown")
 
 case $1 in
   --help | -h )
+    storm -x "https://fahrez256.github.io/game-storm/full/help.sh" -fn "help" "$@"
     exit 0
     ;;
   --info | -i )
