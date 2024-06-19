@@ -60,7 +60,7 @@ case $1 in
     storm -x "https://fahrez256.github.io/game-storm/full/changelogs.sh" -fn "changelogs" "$@"
     exit 0
     ;;
-  --no-cooldown | -scd )
+  --no-cooldown | -ncd )
     rm -f $log_file
     cd_skiped=true
     shift
