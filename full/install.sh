@@ -1,12 +1,15 @@
 source $FUNCTION
 import axeron.prop
-local verName="V1.0"
-local version=10
+local verName="V1.1"
+local version=11
 local pid="[$$]"
 local p="[-]"
 local fcore="https://fahrez256.github.io/game-storm/full/core.sh"
 local id="$(settings get secure android_id)"
 local trim_id="${id:0:6}"
+log_path="/sdcard/Android/data/${AXERONPKG}/files"
+log_file="${log_path}/log.txt"
+cd_skiped=false
 
 time_conv() {
   ms=$1
@@ -39,14 +42,13 @@ time_conv() {
   fi
 }
 
+current_time=$(date +%s%3N)
+last_time=$(cat "$log_file" 2>/dev/null)
+time_diff=$((2700000 - (current_time - last_time)))
+converted_time=$(time_conv $time_diff "no cooldown")
+
 case $1 in
-  --info )
-    log_path="/sdcard/Android/data/${AXERONPKG}/files"
-    log_file="${log_path}/log.txt"
-    current_time=$(date +%s%3N)
-    last_time=$(cat "$log_file" 2>/dev/null)
-    time_diff=$((2700000 - (current_time - last_time)))
-    converted_time=$(time_conv $time_diff "no cooldown")
+  --info | -i )
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
     echo "└┬$p Version: $verName ($version)"
@@ -54,12 +56,18 @@ case $1 in
     echo " └$p Package: ${runPackage:-null}"
     exit 0
     ;;
-  --changelogs )
+  --changelogs | -cl )
     storm -x "https://fahrez256.github.io/game-storm/full/changelogs.sh" -fn "changelogs" "$@"
     exit 0
+    ;;
+  --no-cooldown | -scd )
+    rm -f $log_file
+    cd_skiped=true
+    shift
     ;;
 esac
 
 echo "┌$pid $name | $verName ($version)"
-echo "│$p Thank you for donating, enjoy"
+echo "│Thank you for donating, enjoy"
+[ $cd_skiped = true ] && echo "├$p Cooldown skiped"
 storm -x "$fcore" -fn "fcore" "$@"
