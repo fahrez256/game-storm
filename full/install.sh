@@ -48,6 +48,9 @@ time_diff=$((2700000 - (current_time - last_time)))
 converted_time=$(time_conv $time_diff "no cooldown")
 
 case $1 in
+  --help | -h )
+    exit 0
+    ;;
   --info | -i )
     echo "┌$pid $name | Information"
     echo "├$p ID: $trim_id"
