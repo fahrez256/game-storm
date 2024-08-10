@@ -1,4 +1,4 @@
-source $FUNCTION
+$AXFUN
 import axeron.prop
 w="[!]" #warn
 i="[?]" #info
@@ -15,7 +15,11 @@ vName="V4.2 ShellStorm"
 vAxeron=10240121
 androidId=$(settings get secure android_id)
 
-[ -n "$1" ] && runPackage="$1"
+if [ -n "$1" ] && [ "$1" == "-p" ];then
+    axprop $path_axeronprop runPackage -s "$2"
+    runPackage="$2"
+    shift 2
+fi
 
 axeron_core=$(cat <<-EOF
 Optione {
