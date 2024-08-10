@@ -1,4 +1,4 @@
-source $FUNCTION
+$AXFUN
 import axeron.prop
 local verName="V1.1"
 local version=11
