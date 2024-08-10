@@ -6,6 +6,13 @@ local id="$(settings get secure android_id)"
 local check_id="$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)"
 local trim_id="${id:0:6}"
 local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo false)
+
+if [ -n "$1" ] && [ "$1" == "-p" ];then
+    axprop $path_axeronprop runPackage -s "$2"
+    runPackage="$2"
+    shift 2
+fi
+
 if [ $full_version = true ]; then
   storm -x "$full" -fn "install.sh" "$@"
   exit 0
