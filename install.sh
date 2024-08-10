@@ -1,4 +1,4 @@
-source $FUNCTION
+$AXFUN
 import axeron.prop
 local core="https://fahrez256.github.io/Laxeron/shell/core.sh"
 local full="https://fahrez256.github.io/game-storm/full/install.sh"
