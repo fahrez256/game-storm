@@ -9,7 +9,6 @@ local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo 
 
 if [ -n "$1" ] && [ "$1" == "-p" ];then
     axprop $path_axeronprop runPackage -s "$2"
-    runPackage="$2"
     shift 2
 fi
 
