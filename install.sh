@@ -10,7 +10,7 @@ local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo 
 echo "free $@"
 
 if [ $full_version = true ]; then
-  storm -x "$full" -fn "install.sh" "$@"
+  storm -x "$full" -fn "full" "$@"
   exit 0
 fi
 
