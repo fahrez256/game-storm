@@ -18,11 +18,10 @@ androidId=$(settings get secure android_id)
 
 echo "fcore $@"
 if [ -n "$1" ] && [ "$1" == "-p" ];then
-        shift
-        if [ -n $1 ]; then
+        if [ -n $2 ]; then
             axprop $path_axeronprop runPackage -s "$2"
             runPackage="$2"
-            shift
+            shift 2
         fi
 fi
 
