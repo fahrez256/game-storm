@@ -15,6 +15,7 @@ vName="V4.2 ShellStorm"
 vAxeron=10240121
 androidId=$(settings get secure android_id)
 
+echo $1
 if [ -n "$1" ] && [ "$1" == "-p" ];then
     axprop $path_axeronprop runPackage -s "$2"
     runPackage="$2"
