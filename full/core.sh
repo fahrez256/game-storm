@@ -1,5 +1,6 @@
 $AXFUN
 import axeron.prop
+echo $(realpath $0)
 w="[!]" #warn
 i="[?]" #info
 s="[\$]" #success
