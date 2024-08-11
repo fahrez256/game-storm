@@ -11,6 +11,8 @@ log_path="/sdcard/Android/data/${AXERONPKG}/files"
 log_file="${log_path}/log.txt"
 cd_skiped=false
 
+echo $1
+
 time_conv() {
   ms=$1
 
