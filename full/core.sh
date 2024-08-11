@@ -17,11 +17,13 @@ vAxeron=10240121
 androidId=$(settings get secure android_id)
 
 echo "fcore $@"
-if [ -n "$1" ] && [ "$1" == "-p" ];then
+if [ "$1" == "-p" ];then
         if [ -n $2 ]; then
             axprop $path_axeronprop runPackage -s "$2"
             runPackage="$2"
             shift 2
+        else
+            shift
         fi
 fi
 
