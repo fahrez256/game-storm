@@ -16,7 +16,7 @@ vName="V4.2 ShellStorm"
 vAxeron=10240121
 androidId=$(settings get secure android_id)
 
-echo "fcore $@"
+#echo "fcore $@"
 if [ -n "$1" ] && [ "$1" == "-p" ];then
         if [ -n "$2" ]; then
             axprop $path_axeronprop runPackage -s "$2"
