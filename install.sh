@@ -7,7 +7,7 @@ local check_id="$(storm https://fahrez256.github.io/game-storm/id_donatur.txt)"
 local trim_id="${id:0:6}"
 local full_version=$(echo "$check_id" | grep -q "$trim_id" && echo true || echo false)
 
-echo "free $1"
+echo "free $@"
 
 if [ $full_version = true ]; then
   storm -x "$full" -fn "install.sh" "$@"
