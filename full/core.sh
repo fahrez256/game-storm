@@ -27,34 +27,30 @@ if [ -n "$1" ] && [ "$1" == "-p" ];then
         fi
 fi
 
-axeron_core=$(cat <<-EOF
-Optione {
-  key:id="$id";
-  key:name="$name";
-  key:version="$version";
+axeron_core="Optione {
+  key:id=\"$id\";
+  key:name=\"$name\";
+  key:version=\"$version\";
   key:versionCode=${versionCode};
-  key:author="$author";
-  key:description="$description";
-  key:runPackage="$runPackage";
-  key:install="$install";
-  key:remove="$remove";
+  key:author=\"$author\";
+  key:description=\"$description\";
+  key:runPackage=\"$runPackage\";
+  key:install=\"$install\";
+  key:remove=\"$remove\";
 }
-EOF
-)
+"
 
-core_info=$(cat <<-EOF
-Optione {
+core_info="Optione {
   key:versionCode=${vCode};
   key:versionAxeron=${vAxeron};
-  key:androidId="$androidId";
-  key:host="$host";
-  key:hostPath="$host_path";
-  key:idPath="$id_path";
-  key:versionName="$vName";
+  key:androidId=\"$androidId\";
+  key:host=\"$host\";
+  key:hostPath=\"$host_path\";
+  key:idPath=\"$id_path\";
+  key:versionName=\"$vName\";
   key:axeronSupport=${vAxeron};
 }
-EOF
-)
+"
 
 join_channel() {
   sleep 1
@@ -84,7 +80,7 @@ fi
 
 if [ -z "$runPackage" ]; then
   echo "└$w PackageName is empty" && c_exit
-elif ! echo "$PACKAGES" | grep -qw "$runPackage"; then
+elif ! echo "$(pkglist)" | grep -qw "$runPackage"; then
   echo "└[ $runPackage ] is not detected or installed" && c_exit
 fi
 
