@@ -88,7 +88,7 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
   echo "└$w ActivityManager & PackageManager not Permitted" && c_exit
 fi
 
-if echo "$PACKAGES" | grep -qw "$axeron"; then
+if echo "$(pkglist)" | grep -qw "$axeron"; then
   echo "└$s LAxeron is detected [Fast Connect]" && sleep 1
 else
   echo "├$w LAxeron not Installed"
